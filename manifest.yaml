@@ -45,7 +45,6 @@ spec:
         volumeMounts:
         - name: mysql-secrets
           mountPath: /secrets
-      
       volumes:
-      - name: mysql-secret
+      - name: mysql-secrets
         emptyDir: {}
