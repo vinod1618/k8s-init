@@ -27,7 +27,7 @@ spec:
       serviceAccount: mysql-secret-reader
       initContainers:
       - name: secret-reader
-        image: amazon/aws-cli
+        image: bitnami/aws-cli:latest
         command:
         - sh
         - -c
