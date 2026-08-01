@@ -27,7 +27,7 @@ spec:
       serviceAccount: mysql-secret-reader
       initContainers:
       - name: secret-reader
-        image: bitnami/aws-cli:latest
+        image: amazon/aws-cli
         command:
         - sh
         - -c
@@ -36,7 +36,8 @@ spec:
             --secret-id arn:aws:secretsmanager:us-east-1:315281578625:secret:/roboshop/dev/mysql/root_password-mRS97e \
             --query SecretString --output text | jq -r .MY_SQL_ROOT_PASSWORD > /secrets/mysql-secret-reader.txt
             echo "secret placed successfully"
-            cat /secrets/mysql-secret-reader.txt  # just for verification
+            cat /secrets/mysql-secret-reader.txt     
+      # just for verification
         volumeMounts:
         - name: mysql-secrets
           mountPath: /secrets
